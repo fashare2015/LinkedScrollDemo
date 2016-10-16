@@ -1,0 +1,42 @@
+apply plugin: 'com.android.application'
+apply plugin: 'android-apt'             // apt
+apply plugin: 'me.tatarka.retrolambda'  // java8 语法支持
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.2"
+
+    defaultConfig {
+        applicationId "com.fashare.linkedscrolldemo"
+        minSdkVersion 15
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:24.2.0'
+    compile "com.android.support:recyclerview-v7:${rootProject.ext.supportLibsVersion}"
+
+    // butter knife: 依赖注入, id 和 view 的绑定
+    apt 'com.jakewharton:butterknife-compiler:8.2.1'    // should -> apply plugin: 'android-apt'
+    compile 'com.jakewharton:butterknife:8.2.1'
+
+    // stream: java8 第三方 stream
+    compile 'com.annimon:stream:1.0.9'
+}
