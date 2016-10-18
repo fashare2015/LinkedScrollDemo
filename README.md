@@ -1,5 +1,6 @@
 # LinkedScrollDemo
 ## CSDN 链接
+http://blog.csdn.net/a153614131/article/details/52834415
 
 ## 一个仿饿了么订餐页面的双列表联动Demo
 
